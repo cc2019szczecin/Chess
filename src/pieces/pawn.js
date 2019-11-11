@@ -10,8 +10,14 @@ class Pawn extends Piece {
     // console.log(this.x, this.y);
     const possibleMoves = [];
     if (this.side == 'white') {
+        if (this.x == 6)
+        {
       this.x - 1 > 0 && possibleMoves.push(`${this.x - 1},${this.y}`);
       this.x - 2 > 0 && possibleMoves.push(`${this.x - 2},${this.y}`);
+      }
+      else {
+      this.x - 1 > 0 && possibleMoves.push(`${this.x - 1},${this.y}`);
+    }
     }
     return possibleMoves;
   }
