@@ -9,16 +9,13 @@ class Bishop extends Piece {
   findLegalMoves() {
     const possibleMoves = [];
 	
-	var earlierX= this.x ;
-	var earlierY= this.Y ;
 	
-		for (let i=0; i<8;i++){
-				this.x - i >= 0 &&  this.y + i < 8 && this.x - i != earlierX &&  this.y + i != earlierY && possibleMoves.push(`${this.x - i},${this.y+i}`);
-				this.x + i < 8 &&  this.y - i >= 0 && this.x + i != earlierX &&  this.y - i != earlierY && possibleMoves.push(`${this.x + i},${this.y-i}`);
-				this.x - i >= 0 && this.y - i >= 0 && this.x - i != earlierX &&  this.y - i != earlierY && possibleMoves.push(`${this.x - i},${this.y-i}`);
-				this.x + i < 8 && this.y + i < 8 && this.x + i != earlierX &&  this.y + i != earlierY && possibleMoves.push(`${this.x +i},${this.y+i}`);
+		for (let i=1; i<8;i++){
+				this.x - i >= 0 &&  this.y + i < 8 &&  possibleMoves.push(`${this.x - i},${this.y+i}`);
+				this.x + i < 8 &&  this.y - i >= 0 && possibleMoves.push(`${this.x + i},${this.y-i}`);
+				this.x - i >= 0 && this.y - i >= 0 &&  possibleMoves.push(`${this.x - i},${this.y-i}`);
+				this.x + i < 8 && this.y + i < 8 &&  possibleMoves.push(`${this.x +i},${this.y+i}`);
 			}
-	
 	
 		return possibleMoves;
 	
