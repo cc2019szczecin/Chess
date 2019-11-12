@@ -9,6 +9,10 @@ class Pawn extends Piece {
   findLegalMoves() {
     // console.log(this.x, this.y);
     const possibleMoves = [];
+    if (this.side == 'white') {
+      this.x - 1 >= 0 && possibleMoves.push(`${this.x - 1},${this.y}`);
+      this.x - 2 >= 0 && possibleMoves.push(`${this.x - 2},${this.y}`);
+    }
     return possibleMoves;
   }
   promote() {}
