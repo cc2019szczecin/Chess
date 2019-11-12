@@ -8,22 +8,34 @@ class Rook extends Piece {
   }
   findLegalMoves() {
     const possibleMoves = [];
-    if (this.side == 'white') {
-      for (let i=0; i<8;i++){
-          this.x - i >= 0 &&  this.y && possibleMoves.push(`${this.x - i},${this.y}`);
-          this.x + i < 8 &&  this.y && possibleMoves.push(`${this.x + i},${this.y}`);
-          this.x && this.y - i >= 0 && possibleMoves.push(`${this.x},${this.y-i}`);
-          this.x && this.y + i < 8 && possibleMoves.push(`${this.x},${this.y+i}`);
-        }
+    if (this.side == 'white') {  
+      for (let i=this.x; i>0;i--) {
+          this.x - 1 >= 0 && possibleMoves.push(`${this.x - i},${this.y}`);
       }
+      for (let i = 1; i < 8 - this.x; i++) {
+        this.x + 1 < 8 && possibleMoves.push(`${this.x + i},${this.y}`);
+      }
+      for (let i = this.y; i > 0; i--) {
+        this.y - 1 >= 0 && possibleMoves.push(`${this.x},${this.y - i}`);
+      }
+      for (let i = 1; i < 8 - this.y; i++) {
+        this.y + 1 <= 7 && possibleMoves.push(`${this.x},${this.y + i}`);
+      }
+    }
     if (this.side == 'black') {
-      for (let i=0; i<8;i++){
-          this.x - i >= 0 &&  this.y && possibleMoves.push(`${this.x - i},${this.y}`);
-          this.x + i < 8 &&  this.y && possibleMoves.push(`${this.x + i},${this.y}`);
-          this.x && this.y - i >= 0 && possibleMoves.push(`${this.x},${this.y-i}`);
-          this.x && this.y + i < 8 && possibleMoves.push(`${this.x},${this.y+i}`);
-        }
-      }	
+      for (let i=this.x; i>0;i--) {
+        this.x - 1 >= 0 && possibleMoves.push(`${this.x - i},${this.y}`);
+      }
+      for (let i = 1; i < 8 - this.x; i++) {
+        this.x + 1 < 8 && possibleMoves.push(`${this.x + i},${this.y}`);
+      }
+      for (let i = this.y; i > 0; i--) {
+        this.y - 1 >= 0 && possibleMoves.push(`${this.x},${this.y - i}`);
+      }
+      for (let i = 1; i < 8 - this.y; i++) {
+        this.y + 1 <= 7 && possibleMoves.push(`${this.x},${this.y + i}`);
+      }
+    }	
     return possibleMoves;
   }
 }
