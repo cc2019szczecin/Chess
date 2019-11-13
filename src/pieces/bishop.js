@@ -8,9 +8,19 @@ class Bishop extends Piece {
   }
   findLegalMoves() {
     const possibleMoves = [];
-
-    return possibleMoves;
+	
+	
+		for (let i=1; i<8;i++){
+				this.x - i >= 0 &&  this.y + i < 8 &&  possibleMoves.push(`${this.x - i},${this.y+i}`);
+				this.x + i < 8 &&  this.y - i >= 0 && possibleMoves.push(`${this.x + i},${this.y-i}`);
+				this.x - i >= 0 && this.y - i >= 0 &&  possibleMoves.push(`${this.x - i},${this.y-i}`);
+				this.x + i < 8 && this.y + i < 8 &&  possibleMoves.push(`${this.x +i},${this.y+i}`);
+			}
+	
+		return possibleMoves;
+	
   }
+
 }
 
 export default Bishop;
