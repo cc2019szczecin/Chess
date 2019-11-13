@@ -1,4 +1,5 @@
 import Pawn from './pieces/pawn';
+import Rook from './pieces/rook';
 import Knight from './pieces/knight';
 import Queen from './pieces/queen';
 
@@ -11,6 +12,16 @@ let pawn = new Pawn(6, 0, 'white');
 board[pawn.x][pawn.y] = pawn;
 pawn = new Pawn(6, 1, 'white');
 board[pawn.x][pawn.y] = pawn;
+
+// Rookies
+let rook = new Rook(7, 0, 'white');
+board[rook.x][rook.y] = rook;
+rook = new Rook(7, 7, 'white');
+board[rook.x][rook.y] = rook;
+rook = new Rook(0, 0, 'black');
+board[rook.x][rook.y] = rook;
+rook = new Rook(0, 7, 'black');
+board[rook.x][rook.y] = rook;
 
 //Rozstawienie skoczków - Marta
 let knight = new Knight(0, 1, 'black');
@@ -26,5 +37,6 @@ let queen = new Queen(0, 3, 'black');
 board[queen.x][queen.y] = queen;
 queen = new Queen(7, 3, 'white');
 board[queen.x][queen.y] = queen;
+
 
 export default board;
