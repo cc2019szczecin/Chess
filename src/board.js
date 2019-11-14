@@ -9,7 +9,7 @@ const board = new Array(8);
 for (let i = 0; i < 8; i++) {
   board[i] = new Array(8);
 }
-/Pawn
+//Pawn
 let pawn;
 for (let y = 0; y < 8; y++) {
     pawn = new Pawn(1, y, 'black');
@@ -19,7 +19,7 @@ for (let y = 0; y < 8; y++) {
     pawn = new Pawn(6, y, 'white');
     board[pawn.x][pawn.y] = pawn;
 }
-export default board;
+
 // Rookies
 let rook = new Rook(7, 0, 'white');
 board[rook.x][rook.y] = rook;
