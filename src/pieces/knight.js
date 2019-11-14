@@ -26,19 +26,19 @@ class Knight extends Piece {
       // (this.x - 1 >= 0 && this.y - 2 >= 0 && this.x - 1 <= 7 && this.y - 2 <= 7) && possibleMoves.push(`${this.x - 1},${this.y - 2}`);
       
      //na tych polach stoją figury w tym samym kolorze
-      let sameColor = possibleMoves.map(move => document.getElementById((`${move[0]},${move[1]}`)))
+      const sameColor = possibleMoves.map(move => document.getElementById((`${move[0]},${move[1]}`)))
       .filter(i => i.querySelector(`.${this.side}`))
       .map(i => i.id)
          
-      let legalMoves = possibleMoves.filter(move=> sameColor.some(i => i!=move.join(',')))
+      const legalMoves = possibleMoves.filter(move=> sameColor.every(i => i!=move.join(',')))
       
-      console.log(legalMoves);
+      // console.log(legalMoves);
 
-      console.log(sameColor);
+      // console.log(sameColor);
 
-      console.log(possibleMoves);
+      // console.log(possibleMoves);
       
-    return possibleMoves;
+    return legalMoves;
   }
 }
 
