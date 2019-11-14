@@ -8,6 +8,9 @@ const touched = e => {
   }
   const possibleMoves = board[x][y].findLegalMoves();
   for (let el of possibleMoves) {
+    let figure = board[el[0]][el[el.length - 1]];
+    if (figure && figure.side == board[x][y].side)
+      continue;
     document.getElementById(el).className += ` possibleMove`;
     document.getElementById(el).addEventListener('click', e => {
       board[x][y].move(e.currentTarget.id);
