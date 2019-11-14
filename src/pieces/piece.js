@@ -21,6 +21,16 @@ class Piece {
     document.getElementById(id).innerHTML = this.display;
   }
 
+  ownKill(possibleMoves) {
+    const sameColor = possibleMoves.map(move => document.getElementById((`${move[0]},${move[move.length - 1]}`)))
+      .filter(i => i.querySelector(`.${this.side}`))
+      .map(i => i.id)
+
+    const legalMoves = possibleMoves.filter(move => sameColor.every(i => i != `${move[0]},${move[move.length - 1]}`))
+
+    return legalMoves;
+  }
+
   findLegalMoves() {}
 }
 

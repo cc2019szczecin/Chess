@@ -8,15 +8,17 @@ class King extends Piece {
   }
   findLegalMoves() {
     const possibleMoves = [];
-      this.x - 1 >= 0 && possibleMoves.push(`${this.x - 1},${this.y}`);
-      this.y - 1 >= 0 && possibleMoves.push(`${this.x},${this.y - 1}`);
-      this.x + 1 >= 0 && possibleMoves.push(`${this.x + 1},${this.y}`);
-      this.y + 1 >= 0 && possibleMoves.push(`${this.x},${this.y + 1}`);
-      this.x + 1 >= 0 && this.y + 1 >=0 && possibleMoves.push(`${this.x + 1},${this.y + 1}`);
-      this.x + 1 >= 0 && this.y - 1 >=0 && possibleMoves.push(`${this.x + 1},${this.y - 1}`);
-      this.x - 1 >= 0 && this.y + 1 >=0 && possibleMoves.push(`${this.x - 1},${this.y + 1}`);
-      this.x - 1 >= 0 && this.y - 1 >=0 && possibleMoves.push(`${this.x - 1},${this.y - 1}`);
-    return possibleMoves;
+    this.x - 1 >= 0 && possibleMoves.push(`${this.x - 1},${this.y}`);
+    this.y - 1 >= 0 && possibleMoves.push(`${this.x},${this.y - 1}`);
+    this.x + 1 <= 7 && possibleMoves.push(`${this.x + 1},${this.y}`);
+    this.y + 1 <= 7 && possibleMoves.push(`${this.x},${this.y + 1}`);
+    this.x + 1 <= 7 && this.y + 1 <= 7 && possibleMoves.push(`${this.x + 1},${this.y + 1}`);
+    this.x + 1 <= 7 && this.y - 1 >= 0 && possibleMoves.push(`${this.x + 1},${this.y - 1}`);
+    this.x - 1 >= 0 && this.y + 1 <= 7 && possibleMoves.push(`${this.x - 1},${this.y + 1}`);
+    this.x - 1 >= 0 && this.y - 1 >= 0 && possibleMoves.push(`${this.x - 1},${this.y - 1}`);
+    
+    return this.ownKill(possibleMoves);
+    //return possibleMoves;
   }
 }
 
